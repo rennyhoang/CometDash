@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Text, StyleSheet, Image, Pressable, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import BottomBar from "./BottomBar";
 import { FontSize, FontFamily, Padding, Color, Border } from "../GlobalStyles";
 
 const Leaderboard = () => {
@@ -11,16 +12,7 @@ const Leaderboard = () => {
       <View style={[styles.leaderboard1, styles.bulletListFlexBox]}>
         <View style={styles.topBar}>
           <Text style={[styles.title, styles.titleFlexBox]}>Leaderboard</Text>
-          <Pressable
-            style={styles.icLeft}
-            onPress={() => navigation.navigate("DriverInfo")}
-          >
-            <Image
-              style={[styles.icon, styles.iconLayout]}
-              resizeMode="cover"
-              source={require("../assets/icleft@3x.png")}
-            />
-          </Pressable>
+          <BottomBar></BottomBar>
         </View>
         <View style={[styles.bulletList, styles.bulletListFlexBox]}>
           <Text style={[styles.title1, styles.titleTypo]}>Leaderboard</Text>

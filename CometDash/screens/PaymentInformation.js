@@ -1,6 +1,7 @@
 import * as React from "react";
-import { Text, StyleSheet, Image, View, Pressable } from "react-native";
+import { Text, StyleSheet, Image, View, Pressable, TextInput } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import BottomBar from "./BottomBar"
 import { Padding, FontSize, FontFamily, Color, Border } from "../GlobalStyles";
 
 const PaymentInformation = () => {
@@ -19,31 +20,31 @@ const PaymentInformation = () => {
       <View style={[styles.input, styles.inputPosition]}>
         <Text style={[styles.title1, styles.titleTypo]}>Full Name</Text>
         <View style={styles.textfield}>
-          <Text style={[styles.text, styles.textTypo]}>Please Enter</Text>
+        <TextInput placeholder="Please Enter" style={[styles.text, styles.textTypo]}></TextInput>
         </View>
       </View>
       <View style={[styles.input1, styles.inputPosition]}>
         <Text style={[styles.title1, styles.titleTypo]}>Email Address</Text>
         <View style={styles.textfield}>
-          <Text style={[styles.text, styles.textTypo]}>Please Enter</Text>
+        <TextInput placeholder="Please Enter" style={[styles.text, styles.textTypo]}></TextInput>
         </View>
       </View>
       <View style={[styles.input2, styles.inputPosition]}>
         <Text style={[styles.title1, styles.titleTypo]}>Billing address</Text>
         <View style={styles.textfield}>
-          <Text style={[styles.text, styles.textTypo]}>Please Enter</Text>
+        <TextInput placeholder="Please Enter" style={[styles.text, styles.textTypo]}></TextInput>
         </View>
       </View>
       <View style={[styles.input3, styles.inputPosition]}>
         <Text style={[styles.title1, styles.titleTypo]}>City</Text>
         <View style={styles.textfield}>
-          <Text style={[styles.text, styles.textTypo]}>Please Enter</Text>
+        <TextInput placeholder="Please Enter" style={[styles.text, styles.textTypo]}></TextInput>
         </View>
       </View>
       <View style={[styles.input4, styles.inputPosition]}>
         <Text style={[styles.title1, styles.titleTypo]}>Zip Code</Text>
         <View style={styles.textfield}>
-          <Text style={[styles.text, styles.textTypo]}>Please Enter</Text>
+        <TextInput placeholder="Please Enter" style={[styles.text, styles.textTypo]}></TextInput>
         </View>
       </View>
       <View style={[styles.selection, styles.inputPosition]}>
@@ -63,13 +64,13 @@ const PaymentInformation = () => {
       <View style={[styles.input5, styles.inputPosition]}>
         <Text style={[styles.title1, styles.titleTypo]}>Cardholder's Name</Text>
         <View style={styles.textfield}>
-          <Text style={[styles.text, styles.textTypo]}>Please Enter</Text>
+        <TextInput placeholder="Please Enter" style={[styles.text, styles.textTypo]}></TextInput>
         </View>
       </View>
       <View style={[styles.input6, styles.inputPosition]}>
         <Text style={[styles.title1, styles.titleTypo]}>Card Number</Text>
         <View style={styles.textfield}>
-          <Text style={[styles.text, styles.textTypo]}>Please Enter</Text>
+        <TextInput placeholder="Please Enter" style={[styles.text, styles.textTypo]}></TextInput>
         </View>
       </View>
       <View style={[styles.selection1, styles.inputPosition]}>
@@ -142,17 +143,10 @@ const PaymentInformation = () => {
       <View style={[styles.input7, styles.inputPosition]}>
         <Text style={[styles.title1, styles.titleTypo]}>CVV</Text>
         <View style={styles.textfield}>
-          <Text style={[styles.text, styles.textTypo]}>Please Enter</Text>
+        <TextInput placeholder="Please Enter" style={[styles.text, styles.textTypo]}></TextInput>
         </View>
       </View>
-      <Pressable
-        style={[styles.button, styles.topBarPosition]}
-        onPress={() => navigation.navigate("Settings")}
-      >
-        <View style={styles.button1}>
-          <Text style={[styles.title12, styles.titleTypo]}>Submit Payment</Text>
-        </View>
-      </Pressable>
+      <BottomBar></BottomBar>
     </View>
   );
 };

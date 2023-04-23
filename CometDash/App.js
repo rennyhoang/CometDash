@@ -26,6 +26,7 @@ const App = () => {
     Roboto_bold: require("./assets/fonts/Roboto_bold.ttf"),
   });
 
+
   if (!fontsLoaded && !error) {
     return null;
   }
@@ -97,7 +98,7 @@ const App = () => {
               name="SignIn"
               component={SignIn}
               options={{ headerShown: false }}
-            />
+            />          
           </Stack.Navigator>
         ) : null}
       </NavigationContainer>

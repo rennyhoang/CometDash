@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Text, StyleSheet, Image, Pressable, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import BottomBar from "./BottomBar"
 import { Padding, FontSize, FontFamily, Color, Border } from "../GlobalStyles";
 
 const GroupInfo = () => {
@@ -11,16 +12,7 @@ const GroupInfo = () => {
       <View style={styles.page}>
         <View style={styles.topBar}>
           <Text style={styles.title}>Group Information</Text>
-          <Pressable
-            style={styles.icLeft}
-            onPress={() => navigation.navigate("RiderInfo")}
-          >
-            <Image
-              style={[styles.icon, styles.iconLayout]}
-              resizeMode="cover"
-              source={require("../assets/icleft1@3x.png")}
-            />
-          </Pressable>
+          <BottomBar></BottomBar>
         </View>
         <View style={styles.bulletList}>
           <Text style={[styles.title1, styles.titleFlexBox]}>

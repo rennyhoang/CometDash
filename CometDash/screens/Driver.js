@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Text, StyleSheet, Image, Pressable, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import BottomBar from "./BottomBar";
 import { FontSize, Border, Padding, FontFamily, Color } from "../GlobalStyles";
 
 const Driver = () => {
@@ -11,16 +12,7 @@ const Driver = () => {
       <View style={[styles.driver1, styles.driver1FlexBox]}>
         <View style={styles.topBar}>
           <Text style={styles.title}>Drive!</Text>
-          <Pressable
-            style={styles.icLeft}
-            onPress={() => navigation.navigate("Group")}
-          >
-            <Image
-              style={[styles.icon, styles.iconLayout]}
-              resizeMode="cover"
-              source={require("../assets/icleft1@3x.png")}
-            />
-          </Pressable>
+          <BottomBar></BottomBar>
         </View>
         <View style={styles.image}>
           <View style={styles.img} />
@@ -92,42 +84,6 @@ const Driver = () => {
           </View>
         </View>
       </View>
-      <Pressable
-        style={styles.groupParent}
-        onPress={() => navigation.navigate("Rider")}
-      >
-        <View style={styles.groupChildPosition}>
-          <View style={[styles.groupChild, styles.groupChildPosition]} />
-        </View>
-        <Pressable
-          style={[
-            styles.materialSymbolspersonOutlin,
-            styles.automationPosition,
-          ]}
-          onPress={() => navigation.navigate("RiderInfo")}
-        >
-          <Image
-            style={styles.backgroundLayout}
-            resizeMode="cover"
-            source={require("../assets/vector@3x.png")}
-          />
-        </Pressable>
-        <Image
-          style={styles.carIcon}
-          resizeMode="cover"
-          source={require("../assets/car@3x.png")}
-        />
-        <Pressable
-          style={[styles.automation, styles.automationPosition]}
-          onPress={() => navigation.navigate("Settings")}
-        >
-          <Image
-            style={styles.iconLayout}
-            resizeMode="cover"
-            source={require("../assets/automation@3x.png")}
-          />
-        </Pressable>
-      </Pressable>
     </View>
   );
 };

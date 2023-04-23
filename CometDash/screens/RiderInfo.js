@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Text, StyleSheet, Image, Pressable, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import BottomBar from "./BottomBar";
 import { Border, Padding, Color, FontSize, FontFamily } from "../GlobalStyles";
 
 const RiderInfo = () => {
@@ -271,26 +272,7 @@ const RiderInfo = () => {
             source={require("../assets/vector@3x.png")}
           />
         </View>
-        <Pressable
-          style={[styles.car, styles.carPosition]}
-          onPress={() => navigation.navigate("Rider")}
-        >
-          <Image
-            style={styles.iconLayout}
-            resizeMode="cover"
-            source={require("../assets/car@3x.png")}
-          />
-        </Pressable>
-        <Pressable
-          style={[styles.automation, styles.automationPosition]}
-          onPress={() => navigation.navigate("Settings")}
-        >
-          <Image
-            style={styles.iconLayout}
-            resizeMode="cover"
-            source={require("../assets/automation@3x.png")}
-          />
-        </Pressable>
+        <BottomBar></BottomBar>
       </View>
     </View>
   );

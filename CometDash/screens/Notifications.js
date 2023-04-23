@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Text, StyleSheet, Image, Pressable, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import BottomBar from "./BottomBar";
 import { FontSize, FontFamily, Padding, Color, Border } from "../GlobalStyles";
 
 const Notifications = () => {
@@ -11,16 +12,7 @@ const Notifications = () => {
       <View style={[styles.page, styles.pageFlexBox]}>
         <View style={styles.topBar}>
           <Text style={styles.title}>Notifications</Text>
-          <Pressable
-            style={styles.icLeft}
-            onPress={() => navigation.navigate("Settings")}
-          >
-            <Image
-              style={styles.icon}
-              resizeMode="cover"
-              source={require("../assets/icleft@3x.png")}
-            />
-          </Pressable>
+          <BottomBar></BottomBar>
         </View>
         <View style={[styles.selection, styles.pageFlexBox]}>
           <Text style={[styles.title1, styles.titleTypo]}>Remind me...</Text>

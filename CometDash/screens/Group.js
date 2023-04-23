@@ -2,6 +2,7 @@ import * as React from "react";
 import { Text, StyleSheet, Image, Pressable, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { FontSize, Border, Padding, Color, FontFamily } from "../GlobalStyles";
+import BottomBar from "./BottomBar";
 
 const Group = () => {
   const navigation = useNavigation();
@@ -11,16 +12,7 @@ const Group = () => {
       <View style={styles.group1}>
         <View style={styles.topBar}>
           <Text style={[styles.title, styles.titleFlexBox]}>Group!</Text>
-          <Pressable
-            style={styles.icLeft}
-            onPress={() => navigation.navigate("Rider")}
-          >
-            <Image
-              style={[styles.icon, styles.iconLayout]}
-              resizeMode="cover"
-              source={require("../assets/icleft1@3x.png")}
-            />
-          </Pressable>
+          <BottomBar></BottomBar>
         </View>
         <View style={styles.image}>
           <View style={styles.img} />

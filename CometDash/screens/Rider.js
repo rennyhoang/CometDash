@@ -1,10 +1,15 @@
 import * as React from "react";
-import { Text, StyleSheet, View, Image, Pressable } from "react-native";
+import { Text, StyleSheet, View, Image, Pressable, TextInput } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import BottomBar from "./BottomBar";
 import { Padding, FontFamily, FontSize, Color, Border } from "../GlobalStyles";
 
 const Rider = () => {
   const navigation = useNavigation();
+
+  const [startTime, setStartTime] = React.useState("");
+  const [startAddr, setStartAddr] = React.useState("");
+  const [endAddr, setEndAddr] = React.useState("");
 
   return (
     <View style={styles.rider}>
@@ -12,21 +17,19 @@ const Rider = () => {
         <View style={[styles.input, styles.inputSpaceBlock]}>
           <Text style={[styles.title, styles.titleTypo1]}>Start Time</Text>
           <View style={styles.textfield}>
-            <Text style={[styles.text, styles.textTypo]}>Please Enter</Text>
+            <TextInput placeholder="Please Enter" style={[styles.text, styles.textTypo]} onChangeText={setStartTime} blurOnSubmit={true}></TextInput>
           </View>
         </View>
       </View>
       <View style={[styles.input1, styles.inputSpaceBlock]}>
         <Text style={[styles.title, styles.titleTypo1]}>Start Address</Text>
         <View style={styles.textfield}>
-          <Text style={[styles.text, styles.textTypo]}>Please Enter</Text>
-        </View>
+        <TextInput placeholder="Please Enter" style={[styles.text, styles.textTypo]} onChangeText={setStartAddr} blurOnSubmit={true}></TextInput>        </View>
       </View>
       <View style={[styles.input2, styles.inputSpaceBlock]}>
         <Text style={[styles.title, styles.titleTypo1]}>End Address</Text>
         <View style={styles.textfield}>
-          <Text style={[styles.text, styles.textTypo]}>Please Enter</Text>
-        </View>
+        <TextInput placeholder="Please Enter" style={[styles.text, styles.textTypo]} onChangeText={setEndAddr} blurOnSubmit={true}></TextInput>        </View>
       </View>
       <View style={[styles.selection, styles.inputSpaceBlock]}>
         <Text style={[styles.title, styles.titleTypo1]}>
@@ -103,39 +106,7 @@ const Rider = () => {
         <View style={[styles.rectangleWrapper, styles.groupLayout]}>
           <View style={[styles.groupItem, styles.groupLayout]} />
         </View>
-        <Pressable
-          style={[
-            styles.materialSymbolspersonOutlin,
-            styles.automationIconPosition,
-          ]}
-          onPress={() => navigation.navigate("RiderInfo")}
-        >
-          <Image
-            style={styles.vectorIcon}
-            resizeMode="cover"
-            source={require("../assets/vector@3x.png")}
-          />
-        </Pressable>
-        <Image
-          style={styles.carIcon}
-          resizeMode="cover"
-          source={require("../assets/car@3x.png")}
-        />
-        <Image
-          style={[styles.automationIcon, styles.automationIconPosition]}
-          resizeMode="cover"
-          source={require("../assets/automation@3x.png")}
-        />
-        <Pressable
-          style={[styles.automationIcon, styles.automationIconPosition]}
-          onPress={() => navigation.navigate("Settings")}
-        >
-          <Image
-            style={styles.iconLayout}
-            resizeMode="cover"
-            source={require("../assets/automation@3x.png")}
-          />
-        </Pressable>
+        <BottomBar></BottomBar>
       </View>
     </View>
   );

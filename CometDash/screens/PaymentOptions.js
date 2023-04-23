@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Text, StyleSheet, Image, View, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import BottomBar from "./BottomBar";
 import { Padding, FontFamily, FontSize, Color, Border } from "../GlobalStyles";
 
 const PaymentOptions = () => {
