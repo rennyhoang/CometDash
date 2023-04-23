@@ -1,69 +1,107 @@
-import React, {useState, useEffect} from 'react';
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button, PermissionsAndroid, Pressable, TouchableOpacity } from 'react-native';
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import SignIn from './components/SignIn';
-import { useFonts } from "expo-font";
-import Geolocation from 'react-native-geolocation-service';
-
 const Stack = createNativeStackNavigator();
+import * as React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { useFonts } from "expo-font";
+import Notifications from "./screens/Notifications";
+import Group from "./screens/Group";
+import Driver from "./screens/Driver";
+import GroupInfo from "./screens/GroupInfo";
+import RiderInfo from "./screens/RiderInfo";
+import DriverInfo from "./screens/DriverInfo";
+import Settings from "./screens/Settings";
+import Rider from "./screens/Rider";
+import Leaderboard from "./screens/Leaderboard";
+import PaymentInformation from "./screens/PaymentInformation";
+import PaymentOptions from "./screens/PaymentOptions";
+import SignIn from "./screens/SignIn";
 
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { View, Text, Pressable, TouchableOpacity } from "react-native";
 
-export default function App() {
+const App = () => {
   const [hideSplashScreen, setHideSplashScreen] = React.useState(true);
-  /*const [fontsLoaded, error] = useFonts({
-    Roboto_regular: require("./assets/fonts/Roboto_Regular.ttf"),
-    Roboto_medium: require("./assets/fonts/Roboto_Medium.ttf"),
+  const [fontsLoaded, error] = useFonts({
+    Roboto_regular: require("./assets/fonts/Roboto_regular.ttf"),
+    Roboto_medium: require("./assets/fonts/Roboto_medium.ttf"),
+    Roboto_bold: require("./assets/fonts/Roboto_bold.ttf"),
   });
 
   if (!fontsLoaded && !error) {
     return null;
-  }*/
+  }
+
   return (
-    <NavigationContainer style={styles.container}>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Home"
-          component={HomeScreen}
-          options={{title: 'Welcome!'}}
-        />
-        <Stack.Screen
-              name="Sign In"
-              component={SignIns}
+    <>
+      <NavigationContainer>
+        {hideSplashScreen ? (
+          <Stack.Navigator
+            initialRouteName="SignIn"
+            screenOptions={{ headerShown: false }}
+          >
+            <Stack.Screen
+              name="Notifications"
+              component={Notifications}
               options={{ headerShown: false }}
             />
-      </Stack.Navigator>
-      {/* <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <StatusBar style="auto" />
-      </View> */}
-    </NavigationContainer>
-  );
-}
-
-const HomeScreen = ({navigation}) => {
-  return (
-    <Button
-      title="Go to Jane's profile"
-      onPress={() =>
-        navigation.navigate('Sign In', {name: 'Jane'})
-      }
-    />
+            <Stack.Screen
+              name="Group"
+              component={Group}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Driver"
+              component={Driver}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="GroupInfo"
+              component={GroupInfo}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="RiderInfo"
+              component={RiderInfo}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="DriverInfo"
+              component={DriverInfo}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Settings"
+              component={Settings}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Rider"
+              component={Rider}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Leaderboard"
+              component={Leaderboard}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="PaymentInformation"
+              component={PaymentInformation}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="PaymentOptions"
+              component={PaymentOptions}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="SignIn"
+              component={SignIn}
+              options={{ headerShown: false }}
+            />
+          </Stack.Navigator>
+        ) : null}
+      </NavigationContainer>
+    </>
   );
 };
-
-const SignIns = ({navigation}) => {
-  return (
-    <SignIn></SignIn>
-  )
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
