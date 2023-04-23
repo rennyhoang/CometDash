@@ -7,7 +7,7 @@
     "icon": "./assets/icon@3x.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash@3x.png",
+      "image": "./assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -27,7 +27,7 @@
       }
     },
     "web": {
-      "favicon": "./assets/favicon@3x.png"
+      "favicon": "./assets/favicon.png"
     }
   }
 }

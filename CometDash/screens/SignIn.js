@@ -1,10 +1,13 @@
 import * as React from "react";
-import { Text, StyleSheet, View, Pressable } from "react-native";
+import { Text, StyleSheet, View, Pressable, TextInput } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { FontSize, FontFamily, Color, Border, Padding } from "../GlobalStyles";
 
 const SignIn = () => {
   const navigation = useNavigation();
+
+  const [userName, setUserName] = React.useState("");
+  const [pass, setPass] = React.useState("");
 
   return (
     <View style={styles.signIn}>
@@ -14,13 +17,13 @@ const SignIn = () => {
       <View style={[styles.input, styles.inputSpaceBlock]}>
         <Text style={[styles.title1, styles.titleTypo]}>UTD ID</Text>
         <View style={styles.textfield}>
-          <Text style={styles.text}>Please Enter</Text>
+          <TextInput placeholder="Please Enter" style={styles.text} onChangeText={setUserName} blurOnSubmit={true}></TextInput>
         </View>
       </View>
       <View style={[styles.input1, styles.inputSpaceBlock]}>
         <Text style={[styles.title1, styles.titleTypo]}>Password</Text>
         <View style={styles.textfield}>
-          <Text style={styles.text}>Please Enter</Text>
+          <TextInput placeholder="Please Enter" style={styles.text} onChangeText={setPass} blurOnSubmit={true}></TextInput>
         </View>
       </View>
       <Pressable
